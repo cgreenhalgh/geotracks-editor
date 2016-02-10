@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>gmap test around jubilee</name>
+		<description><![CDATA[]]></description>
+		<Folder>
+			<name>lines</name>
+			<Placemark>
+				<name>Point 2</name>
+				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1876017,52.9533664,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>B</name>
+				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1869901,52.952135000000006,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>C</name>
+				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1862284,52.9522384,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>D</name>
+				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1869097,52.9534666,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Line 6</name>
+				<styleUrl>#line-000000-1-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.1876446000000003,52.9533631,0.0 -1.1869901,52.952135000000006,0.0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>Line 7</name>
+				<styleUrl>#line-000000-1-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.1869901,52.952135000000006,0.0 -1.1862284,52.9522384,0.0 -1.1869097,52.9534666,0.0 -1.1876017,52.9533664,0.0</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Directions from University of Nottingham: Jubilee Campus, Computer Science and Dearing Buildings, Nottingham, Nottinghamshire NG8 1AW, UK to University of Nottingham: Jubilee Campus, Computer Science and Dearing Buildings, Nottingham, Nottinghamshire NG8 1AW, UK</name>
+			<Placemark>
+				<name>Directions from University of Nottingham: Jubilee Campus, Computer Science and Dearing Buildings, Nottingham, Nottinghamshire NG8 1AW, UK to University of Nottingham: Jubilee Campus, Computer Science and Dearing Buildings, Nottingham, Nottinghamshire NG8 1AW, UK</name>
+				<styleUrl>#line-1267FF-5-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.18763,52.95336,0.0 -1.18725,52.95259,0.0 -1.18698,52.95212,0.0 -1.18701,52.95211,0.0 -1.18724,52.9521,0.0 -1.18728,52.9521,0.0 -1.18735,52.9521,0.0 -1.1874,52.952090000000005,0.0 -1.18801,52.95201,0.0 -1.18808,52.95201,0.0 -1.18812,52.95199,0.0 -1.18814,52.95196000000001,0.0 -1.18813,52.95192,0.0 -1.18802,52.9515,0.0 -1.18772,52.9508,0.0 -1.18764,52.9505,0.0 -1.1876000000000002,52.95016,0.0 -1.1876000000000002,52.95,0.0 -1.18757,52.95,0.0 -1.18754,52.94999,0.0 -1.1875,52.94998,0.0 -1.18707,52.94999,0.0 -1.18666,52.95002,0.0 -1.18633,52.95008,0.0 -1.18606,52.95018000000001,0.0 -1.18586,52.95025,0.0 -1.18558,52.95036,0.0 -1.18551,52.95041,0.0 -1.18556,52.95058,0.0 -1.18598,52.95057,0.0 -1.186,52.95059,0.0 -1.18603,52.95064,0.0 -1.18617,52.95088,0.0 -1.18628,52.951010000000004,0.0 -1.18641,52.95126,0.0 -1.18574,52.95118000000001,0.0 -1.18585,52.95143,0.0 -1.18588,52.95151,0.0 -1.18596,52.95169,0.0 -1.18599,52.95177,0.0 -1.18611,52.95199,0.0 -1.18613,52.95204,0.0 -1.18614,52.95206,0.0 -1.18623,52.952220000000004,0.0 -1.18665,52.95298,0.0 -1.18708,52.95379,0.0 -1.18774,52.95357,0.0 -1.1877300000000002,52.95356000000001,0.0 -1.18769,52.9535,0.0 -1.18764,52.953390000000006,0.0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>University of Nottingham: Jubilee Campus, Computer Science and Dearing Buildings, Nottingham, Nottinghamshire NG8 1AW, UK</name>
+				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1876279,52.9533641,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>University of Nottingham: Jubilee Campus, Computer Science and Dearing Buildings, Nottingham, Nottinghamshire NG8 1AW, UK</name>
+				<styleUrl>#icon-503-DB4436-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1876393,52.9533877,0.0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Untitled layer</name>
+		</Folder>
+		<Style id='icon-503-DB4436-nodesc-normal'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='icon-503-DB4436-nodesc-highlight'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='icon-503-DB4436-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-503-DB4436-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-503-DB4436-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-000000-1-nodesc-normal'>
+			<LineStyle>
+				<color>ff000000</color>
+				<width>1</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-000000-1-nodesc-highlight'>
+			<LineStyle>
+				<color>ff000000</color>
+				<width>2.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-000000-1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-000000-1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-000000-1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-1267FF-5-nodesc-normal'>
+			<LineStyle>
+				<color>ffFF6712</color>
+				<width>5</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-1267FF-5-nodesc-highlight'>
+			<LineStyle>
+				<color>ffFF6712</color>
+				<width>8.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-1267FF-5-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-1267FF-5-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-1267FF-5-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+	</Document>
+</kml>

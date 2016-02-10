@@ -1,0 +1,143 @@
+{
+  "href" : "https://api.spotify.com/v1/users/cgreenhalgh01/playlists/2okJi96BdYVDyHzCR3gaQ7/tracks?offset=0&limit=100",
+  "items" : [ {
+    "added_at" : "2016-02-10T09:53:33Z",
+    "added_by" : {
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/cgreenhalgh01"
+      },
+      "href" : "https://api.spotify.com/v1/users/cgreenhalgh01",
+      "id" : "cgreenhalgh01",
+      "type" : "user",
+      "uri" : "spotify:user:cgreenhalgh01"
+    },
+    "is_local" : false,
+    "track" : {
+      "album" : {
+        "album_type" : "single",
+        "available_markets" : [ "AD", "AT", "AU", "BE", "BG", "CA", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GB", "GR", "HK", "HU", "IE", "IS", "IT", "LI", "LT", "LU", "LV", "MC", "MT", "MY", "NL", "NO", "NZ", "PH", "PL", "PT", "RO", "SE", "SG", "SI", "SK", "TR", "TW" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/5oWQ2uILvj5bAjeIjSYYc8"
+        },
+        "href" : "https://api.spotify.com/v1/albums/5oWQ2uILvj5bAjeIjSYYc8",
+        "id" : "5oWQ2uILvj5bAjeIjSYYc8",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/aed3d3eafce0d4dfcfec2a0b4e84c20b8a3ee8a9",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/5e9a570575d90659d1640c76682b17138f3e164b",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/786dfb115b54008dbc2996f06f10d13c416a196a",
+          "width" : 64
+        } ],
+        "name" : "When We Were Young",
+        "type" : "album",
+        "uri" : "spotify:album:5oWQ2uILvj5bAjeIjSYYc8"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4dpARuHxo51G3z768sgnrY"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4dpARuHxo51G3z768sgnrY",
+        "id" : "4dpARuHxo51G3z768sgnrY",
+        "name" : "Adele",
+        "type" : "artist",
+        "uri" : "spotify:artist:4dpARuHxo51G3z768sgnrY"
+      } ],
+      "available_markets" : [ "AD", "AT", "AU", "BE", "BG", "CA", "CH", "CY", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", "GB", "GR", "HK", "HU", "IE", "IS", "IT", "LI", "LT", "LU", "LV", "MC", "MT", "MY", "NL", "NO", "NZ", "PH", "PL", "PT", "RO", "SE", "SG", "SI", "SK", "TR", "TW" ],
+      "disc_number" : 1,
+      "duration_ms" : 290900,
+      "explicit" : false,
+      "external_ids" : {
+        "isrc" : "GBBKS1500217"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/7ilS0BPWS8ek2P2GaxH3cP"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/7ilS0BPWS8ek2P2GaxH3cP",
+      "id" : "7ilS0BPWS8ek2P2GaxH3cP",
+      "name" : "When We Were Young",
+      "popularity" : 76,
+      "preview_url" : "https://p.scdn.co/mp3-preview/f5641c80c45cbcf1a82c24da80c12a2dfb1ec51e",
+      "track_number" : 1,
+      "type" : "track",
+      "uri" : "spotify:track:7ilS0BPWS8ek2P2GaxH3cP"
+    }
+  }, {
+    "added_at" : "2016-02-10T09:53:54Z",
+    "added_by" : {
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/cgreenhalgh01"
+      },
+      "href" : "https://api.spotify.com/v1/users/cgreenhalgh01",
+      "id" : "cgreenhalgh01",
+      "type" : "user",
+      "uri" : "spotify:user:cgreenhalgh01"
+    },
+    "is_local" : false,
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "IE", "IS", "IT", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SI", "SK", "SV", "TR", "TW", "US", "UY" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/3cfAM8b8KqJRoIzt3zLKqw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/3cfAM8b8KqJRoIzt3zLKqw",
+        "id" : "3cfAM8b8KqJRoIzt3zLKqw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/9c2c4a9ac9726bfd996ff96383178bbb5efc59ab",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/2f66abbf986dcc2fb1dca9bceb892123d5d10c3a",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/8a87ac474db652dd6cd9fb208be0f37a4ea9c36b",
+          "width" : 64
+        } ],
+        "name" : "A Head Full Of Dreams",
+        "type" : "album",
+        "uri" : "spotify:album:3cfAM8b8KqJRoIzt3zLKqw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4gzpq5DPGxSnKTe4SA8HAU"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4gzpq5DPGxSnKTe4SA8HAU",
+        "id" : "4gzpq5DPGxSnKTe4SA8HAU",
+        "name" : "Coldplay",
+        "type" : "artist",
+        "uri" : "spotify:artist:4gzpq5DPGxSnKTe4SA8HAU"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "IE", "IS", "IT", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SI", "SK", "SV", "TR", "TW", "US", "UY" ],
+      "disc_number" : 1,
+      "duration_ms" : 263786,
+      "explicit" : false,
+      "external_ids" : {
+        "isrc" : "GBAYE1500981"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/69uxyAqqPIsUyTO8txoP2M"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/69uxyAqqPIsUyTO8txoP2M",
+      "id" : "69uxyAqqPIsUyTO8txoP2M",
+      "name" : "Adventure Of A Lifetime",
+      "popularity" : 94,
+      "preview_url" : "https://p.scdn.co/mp3-preview/f5c8203c517a906dd581e0faeca84d1e0206c8b6",
+      "track_number" : 5,
+      "type" : "track",
+      "uri" : "spotify:track:69uxyAqqPIsUyTO8txoP2M"
+    }
+  } ],
+  "limit" : 100,
+  "next" : null,
+  "offset" : 0,
+  "previous" : null,
+  "total" : 2
+}

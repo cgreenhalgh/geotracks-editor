@@ -1,0 +1,39 @@
+{
+  "href" : "https://api.spotify.com/v1/users/cgreenhalgh01/playlists?offset=0&limit=20",
+  "items" : [ {
+    "collaborative" : false,
+    "external_urls" : {
+      "spotify" : "http://open.spotify.com/user/cgreenhalgh01/playlist/2okJi96BdYVDyHzCR3gaQ7"
+    },
+    "href" : "https://api.spotify.com/v1/users/cgreenhalgh01/playlists/2okJi96BdYVDyHzCR3gaQ7",
+    "id" : "2okJi96BdYVDyHzCR3gaQ7",
+    "images" : [ {
+      "height" : 640,
+      "url" : "https://i.scdn.co/image/aed3d3eafce0d4dfcfec2a0b4e84c20b8a3ee8a9",
+      "width" : 640
+    } ],
+    "name" : "list1",
+    "owner" : {
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/cgreenhalgh01"
+      },
+      "href" : "https://api.spotify.com/v1/users/cgreenhalgh01",
+      "id" : "cgreenhalgh01",
+      "type" : "user",
+      "uri" : "spotify:user:cgreenhalgh01"
+    },
+    "public" : true,
+    "snapshot_id" : "eeu930zyKSFeFcJBINXELKI4YN1qrrrUL/Fx7Wl1v9rCrmEGkuJUmmQCCI+l1UUp",
+    "tracks" : {
+      "href" : "https://api.spotify.com/v1/users/cgreenhalgh01/playlists/2okJi96BdYVDyHzCR3gaQ7/tracks",
+      "total" : 2
+    },
+    "type" : "playlist",
+    "uri" : "spotify:user:cgreenhalgh01:playlist:2okJi96BdYVDyHzCR3gaQ7"
+  } ],
+  "limit" : 20,
+  "next" : null,
+  "offset" : 0,
+  "previous" : null,
+  "total" : 1
+}

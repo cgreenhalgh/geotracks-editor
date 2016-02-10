@@ -1,0 +1,510 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns='http://www.opengis.net/kml/2.2'>
+	<Document>
+		<name>Jubilee Walking Tests</name>
+		<description><![CDATA[]]></description>
+		<Folder>
+			<name>Untitled layer</name>
+			<Placemark>
+				<name>CS_NW</name>
+				<description><![CDATA[Lakeside path north side of CS]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1877358,52.9535635,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>48m</name>
+				<styleUrl>#line-FF4100-1-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.1877358,52.9535635,0.0 -1.1870974,52.9537833,0.0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>CS_NE</name>
+				<description><![CDATA[Roadside path north of CS]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1870974,52.9537833,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>AT_E</name>
+				<description><![CDATA[Path to east of main Atrium]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1866629,52.9529689,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>180m</name>
+				<styleUrl>#line-FBFF00-1-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.1870974,52.9537833,0.0 -1.1862284,52.9522384,0.0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>ED_SE</name>
+				<description><![CDATA[Roadside path SE of Education]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1862284,52.9522384,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>ED_SW</name>
+				<description><![CDATA[Lakeside path SW of Education]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1869848,52.9521156,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>132m</name>
+				<styleUrl>#line-39FF00-1-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.1862284,52.9522384,0.0 -1.1881542,52.9519928,0.0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>SLW_NW</name>
+				<description><![CDATA[South Lakeside, North west corner]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1881542,52.9519928,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>SLW_W</name>
+				<description><![CDATA[South lakeside walk, west mid-point]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1878002,52.9510006,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>223m</name>
+				<styleUrl>#line-00FF8A-1-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.1881542,52.9519928,0.0 -1.187591,52.9500116,0.0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>SLW_SW</name>
+				<description><![CDATA[South lakeside walk, south west corner]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.187591,52.9500116,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>116m</name>
+				<styleUrl>#line-00F3FF-1-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.187591,52.9500116,0.0 -1.1858851,52.950241,0.0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>SLW_SE</name>
+				<description><![CDATA[South lakeside walk, south east corner]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1858851,52.950241,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>126m</name>
+				<styleUrl>#line-0071FF-1-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.1858851,52.950241,0.0 -1.1865932,52.951285,0.0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>PR_SLW</name>
+				<description><![CDATA[Promenade, point 2 (lakeside path intersection)]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1865932,52.951285,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>14m</name>
+				<styleUrl>#line-1000FF-1-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.1867917,52.9513109,0.0 -1.1865932,52.951285,0.0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>PR_SL</name>
+				<description><![CDATA[Promenade (closest to lake)]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1867917,52.9513109,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>57m</name>
+				<styleUrl>#line-9200FF-1-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.1865932,52.951285,0.0 -1.1857349,52.951181600000005,0.0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<name>PR_R</name>
+				<description><![CDATA[Promenade, internal road]]></description>
+				<styleUrl>#icon-503-DB4436</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<Point>
+					<coordinates>-1.1857349,52.951181600000005,0.0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>125m</name>
+				<styleUrl>#line-FF00EB-1-nodesc</styleUrl>
+				<ExtendedData>
+				</ExtendedData>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>-1.1857349,52.951181600000005,0.0 -1.1862284,52.9522384,0.0</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+		<Style id='icon-503-DB4436-normal'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>0.0</scale>
+			</LabelStyle>
+		</Style>
+		<Style id='icon-503-DB4436-highlight'>
+			<IconStyle>
+				<color>ff3644DB</color>
+				<scale>1.1</scale>
+				<Icon>
+					<href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+				</Icon>
+				<hotSpot x='16' y='31' xunits='pixels' yunits='insetPixels'>
+				</hotSpot>
+			</IconStyle>
+			<LabelStyle>
+				<scale>1.1</scale>
+			</LabelStyle>
+		</Style>
+		<StyleMap id='icon-503-DB4436'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#icon-503-DB4436-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#icon-503-DB4436-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-0071FF-1-nodesc-normal'>
+			<LineStyle>
+				<color>ffFF7100</color>
+				<width>1</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-0071FF-1-nodesc-highlight'>
+			<LineStyle>
+				<color>ffFF7100</color>
+				<width>2.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-0071FF-1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-0071FF-1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-0071FF-1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-00F3FF-1-nodesc-normal'>
+			<LineStyle>
+				<color>ffFFF300</color>
+				<width>1</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-00F3FF-1-nodesc-highlight'>
+			<LineStyle>
+				<color>ffFFF300</color>
+				<width>2.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-00F3FF-1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-00F3FF-1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-00F3FF-1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-00FF8A-1-nodesc-normal'>
+			<LineStyle>
+				<color>ff8AFF00</color>
+				<width>1</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-00FF8A-1-nodesc-highlight'>
+			<LineStyle>
+				<color>ff8AFF00</color>
+				<width>2.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-00FF8A-1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-00FF8A-1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-00FF8A-1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-1000FF-1-nodesc-normal'>
+			<LineStyle>
+				<color>ffFF0010</color>
+				<width>1</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-1000FF-1-nodesc-highlight'>
+			<LineStyle>
+				<color>ffFF0010</color>
+				<width>2.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-1000FF-1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-1000FF-1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-1000FF-1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-39FF00-1-nodesc-normal'>
+			<LineStyle>
+				<color>ff00FF39</color>
+				<width>1</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-39FF00-1-nodesc-highlight'>
+			<LineStyle>
+				<color>ff00FF39</color>
+				<width>2.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-39FF00-1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-39FF00-1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-39FF00-1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-9200FF-1-nodesc-normal'>
+			<LineStyle>
+				<color>ffFF0092</color>
+				<width>1</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-9200FF-1-nodesc-highlight'>
+			<LineStyle>
+				<color>ffFF0092</color>
+				<width>2.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-9200FF-1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-9200FF-1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-9200FF-1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-FBFF00-1-nodesc-normal'>
+			<LineStyle>
+				<color>ff00FFFB</color>
+				<width>1</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-FBFF00-1-nodesc-highlight'>
+			<LineStyle>
+				<color>ff00FFFB</color>
+				<width>2.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-FBFF00-1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-FBFF00-1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-FBFF00-1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-FF00EB-1-nodesc-normal'>
+			<LineStyle>
+				<color>ffEB00FF</color>
+				<width>1</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-FF00EB-1-nodesc-highlight'>
+			<LineStyle>
+				<color>ffEB00FF</color>
+				<width>2.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-FF00EB-1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-FF00EB-1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-FF00EB-1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+		<Style id='line-FF4100-1-nodesc-normal'>
+			<LineStyle>
+				<color>ff0041FF</color>
+				<width>1</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<Style id='line-FF4100-1-nodesc-highlight'>
+			<LineStyle>
+				<color>ff0041FF</color>
+				<width>2.0</width>
+			</LineStyle>
+			<BalloonStyle>
+				<text><![CDATA[<h3>$[name]</h3>]]></text>
+			</BalloonStyle>
+		</Style>
+		<StyleMap id='line-FF4100-1-nodesc'>
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#line-FF4100-1-nodesc-normal</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#line-FF4100-1-nodesc-highlight</styleUrl>
+			</Pair>
+		</StyleMap>
+	</Document>
+</kml>
