@@ -11,7 +11,7 @@ https://open.spotify.com/user/cgreenhalgh01/playlist/2okJi96BdYVDyHzCR3gaQ7
 spotify:user:cgreenhalgh01:playlist:2okJi96BdYVDyHzCR3gaQ7
 ```
 
-## Spotify developer
+### Spotify developer
 
 (https://developer.spotify.com/)[https://developer.spotify.com/]
 
@@ -40,6 +40,8 @@ with `error` and `error_description`. General error is object with
 `error` which is object with `status` and `message`.
 See (authentication code samples)[https://github.com/spotify/web-api-auth-examples]
 
+### Back to playlists
+
 Getting a playlist (`/v1/users/{user_id}/playlists/{playlist_id}` or 
 `/v1/users/{user_id}/playlists/{playlist_id}/tracks`) requires 
 authentication with OAuth. 
@@ -61,6 +63,9 @@ Get tracks has list of `items`. Item includes `track` with:
 - `artists`, list, objects including `id` and `name`
 - `album`, object including `id` and `name`
 - `preview_url` (short mp3)
+- `is_local` (i.e. a local file on their computer, with an 
+  uri like `spotify:local:Da+Dog:Happy:La+Bouche+du+Chien:276` - 276 is
+  track duration in seconds)
 
 (also `total`, `offset`, `limit`, but default limit 100).
 
@@ -90,6 +95,24 @@ e.g. `"spotify:track:3L7BcXHCG8uT92viO6Tikl"`. (`bucket` `id:spotify`).
 
 No obvious way to map between IDs from different places, except ISRCs
 and I am not sure who/what can use these at the moment.
+
+Can upload own track via upload, e.g. 
+```
+curl -X POST -H "Content-Type:application/octet-stream" "http://developer.echonest.com/api/v4/track/upload?api_key=....&filetype=mp3" --data-binary "@02 La Bouche du Chien.mp3"
+{"response": {"status": {"version": "4.2", "code": 0, "message": "Success"}, "track": {"status": "pending", "artist": "Da Dog", "title": "La Bouche du Chien", "release": "", "audio_md5": "89cb728f4446a637cdcee74210e640d0", "bitrate": 128, "id": "TRKGVKS152CBAD7241", "samplerate": 44100, "md5": "738047f132319100a69580a434272ae1"}}}
+```
+
+Get info with (track) profile; takes `id` or `md5`. MD5 is the same as
+from `openssl md5` on the uploaded file.
+Says it took 5 seconds. Outputs various overall data on tempo, etc.,
+plus sections, bars, beats, tatums (sub-beats) and segments 
+(fine-grained musical events). 
+Also generates `synchstring` which can in principle be compared with
+locally decoded file to check timing offset(s). 
+
+See (analysis docs)[http://developer.echonest.com/docs/v4/_static/AnalyzeDocumentation.pdf]
+and (synchdata code samples)[https://github.com/echonest/synchdata] for
+details.
 
 ## 7digital
 

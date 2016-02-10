@@ -134,10 +134,57 @@
       "type" : "track",
       "uri" : "spotify:track:69uxyAqqPIsUyTO8txoP2M"
     }
+  }, {
+    "added_at" : "2016-02-10T14:43:33Z",
+    "added_by" : {
+      "external_urls" : {
+        "spotify" : "http://open.spotify.com/user/cgreenhalgh01"
+      },
+      "href" : "https://api.spotify.com/v1/users/cgreenhalgh01",
+      "id" : "cgreenhalgh01",
+      "type" : "user",
+      "uri" : "spotify:user:cgreenhalgh01"
+    },
+    "is_local" : true,
+    "track" : {
+      "album" : {
+        "album_type" : null,
+        "available_markets" : [ ],
+        "external_urls" : { },
+        "href" : null,
+        "id" : null,
+        "images" : [ ],
+        "name" : "Happy",
+        "type" : "album",
+        "uri" : null
+      },
+      "artists" : [ {
+        "external_urls" : { },
+        "href" : null,
+        "id" : null,
+        "name" : "Da Dog",
+        "type" : "artist",
+        "uri" : null
+      } ],
+      "available_markets" : [ ],
+      "disc_number" : 0,
+      "duration_ms" : 276000,
+      "explicit" : false,
+      "external_ids" : { },
+      "external_urls" : { },
+      "href" : null,
+      "id" : null,
+      "name" : "La Bouche du Chien",
+      "popularity" : 0,
+      "preview_url" : null,
+      "track_number" : 0,
+      "type" : "track",
+      "uri" : "spotify:local:Da+Dog:Happy:La+Bouche+du+Chien:276"
+    }
   } ],
   "limit" : 100,
   "next" : null,
   "offset" : 0,
   "previous" : null,
-  "total" : 2
+  "total" : 3
 }
