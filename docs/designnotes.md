@@ -28,3 +28,40 @@ one geotrack. Some treatments are generic, e.g. changes to volume.
 The initiatiation and progression of a treatment are defined in the same
 way as a transition, e.g. time and/or location-based. Some geotracks may
 provide additional treatment types, e.g. stem-based remixing.
+
+## Initial implementation
+
+I want to provide quite early support both for the geolist editor
+and some geotrack adaptation support (both needed to the planned trial).
+
+So initial version will be wordpress-based. Geotrack and Geolist will
+each be custom post types. 
+
+Geotrack custom metadata will include
+track/album/artist as well as multiple track IDs, e.g. ISRC, 
+spotify ID, whatever we have. Geotrack edit view will allow track
+file to be uploaded. MD5 will be generated and file stored under that.
+Associated analysis data will be retrieved from EchoNest; file will be
+uploaded to EchoNest if unknonw. This uploaded file will (at least 
+nominally) only ever be served to the person who uploaded it to address
+basic copyright issues.
+
+Geotrack extensions will include adding tracks from search of external
+APIs (musizbrainz, spotify, EchoNest and/or 7digital). (Of these only
+7digital would also support buying and downloading the track, but this
+would require a contract with 7digital.)
+
+Geolist will initially support map import from Google maps KML file.
+First version will only add tracks from existing geotracks (custom post
+type). First version will allow ordering of tracks and limited tailoring
+of transitions.
+
+Geolist extensions will include nested geolists (i.e. a list of 
+geotracks and transitions treated like one geotrack); defining treatments
+of geotracks; more complex transitions; richer visualisation and 
+support with predicting outcomes.
+
+Tentatively, initial link to dymos might be exporting a  single geotrack.
+
+Tentatively, initial export from geolist might be daoplayer config. And/or
+appfurnace data?.
