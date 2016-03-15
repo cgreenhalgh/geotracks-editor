@@ -1,5 +1,5 @@
 php:
   lookup:
-    # composer as of 2016-03-04
-    composer_hash: sha256=562c0b48cc52872e7c420ffb5df027434c715f0fe58a9d34f1807b7c5c1b6317
+    # composer as of 2016-03-07 - see https://composer.github.io/pubkeys.html
+    composer_hash: sha384=41e71d86b40f28e771d4bb662b997f79625196afcca95a5abf44391188c695c6c1456e16154c75a211d238cc3bc5cb47
 

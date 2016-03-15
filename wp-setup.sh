@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export WORDPRESS_VERSION=4.3
+export WORDPRESS_VERSION=4.4.2
 
 # setup for running test-plugins.sh
 [ -d wordpress ] || mkdir wordpress

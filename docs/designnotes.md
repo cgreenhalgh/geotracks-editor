@@ -36,15 +36,27 @@ and some geotrack adaptation support (both needed to the planned trial).
 
 So initial version will be wordpress-based. Geotrack and Geolist will
 each be custom post types. 
+- `geotrack`
+- `geolist`
 
-Geotrack custom metadata will include
-track/album/artist as well as multiple track IDs, e.g. ISRC, 
-spotify ID, whatever we have. Geotrack edit view will allow track
+Geotrack metadata will include:
+- `title`, typically 'TRACK by ARTIST from ALBUM (YEAR)'
+- `_gted_duration_ms`, duration in ms
+- `_gted_md5`, MD5 of audio file
+- `_gted_isrc`, ISRC if known
+- `_gted_spotify_id`, if known
+
+Plus... (details to be determined)
+track/album/artist as well as multiple track IDs, 
+
+Geotrack edit view will allow track
 file to be uploaded. MD5 will be generated and file stored under that.
-Associated analysis data will be retrieved from EchoNest; file will be
-uploaded to EchoNest if unknonw. This uploaded file will (at least 
+The audio file will (at least
 nominally) only ever be served to the person who uploaded it to address
-basic copyright issues.
+
+Associated analysis data will be generated with SonicAnnotator. 
+Possibly additional analysis data will be retrieved from EchoNest; file will be
+uploaded to EchoNest if unknonw. 
 
 Geotrack extensions will include adding tracks from search of external
 APIs (musizbrainz, spotify, EchoNest and/or 7digital). (Of these only
