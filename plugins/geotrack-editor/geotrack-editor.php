@@ -134,9 +134,14 @@ function gted_save_geotrack( $post_id ) {
  * @param post $post post being edited.
  */
 function gted_geolist_custom_box( $post ) {
+	$tracks = get_post_meta( $post->ID, '_gted_tracks', true );
+	if ( ! $tracks )
+		$tracks = '[]';
 ?>
+<script type="text/javascript">var gted_geolist_id=<?php esc_attr_e( $post->ID ); ?>;</script>
+<input id="gted_tracks" type="hidden" name="gted_tracks" value="<?php echo( filter_var( $tracks, FILTER_SANITIZE_SPECIAL_CHARS ) ) ?>">
 <div ng-app="gted">
-	<div ng-controller="test">{{ test }}</div>
+	<div ng-controller="test"><input type="text" ng-model="test" ng-change="update()"></div>
 </div>
 <?php
 }
@@ -148,6 +153,13 @@ add_action( 'save_post_geolist', 'gted_save_geolist' );
  * @param int $post_id Post being saved.
  */
 function gted_save_geolist( $post_id ) {
+	if ( array_key_exists( 'gted_tracks', $_POST ) ) {
+			$tracks = $_POST['gted_tracks'];
+		if ( ! $tracks ) {
+				$tracks = '[]'; }
+			// Wp_slash allegedly required to preserve escaped chars in JSON
+			update_post_meta( $post_id, '_gted_tracks', wp_slash( $tracks ) );
+	}
 }
 /* Hook to enqueue scripts and style for my metaboxes. */
 add_action( 'admin_enqueue_scripts', 'gted_enqueue' );
