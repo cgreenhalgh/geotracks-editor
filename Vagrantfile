@@ -9,6 +9,7 @@ Vagrant.configure(2) do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    sudo apt-get update
     sudo apt-get install -y git wget curl
 
     # saltstack setup for apache/php/wordpress...
@@ -35,13 +36,16 @@ Vagrant.configure(2) do |config|
     sudo salt-call state.highstate
 
     # Node.js
-    #curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
-    #sudo apt-get install -y nodejs
+    curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
+    sudo apt-get install -y nodejs
     #sudo apt-get install -y build-essential
 
-    # node dependencies
     # --no-bin-links workaround for use on top of windows FS
     #npm install --no-bin-links
+
+    # bower
+    sudo npm install -g bower
+    bower install
 
 SHELL
 

@@ -36,3 +36,6 @@ node_modules
 wordpress
 # vagrant
 .vagrant
+
+# bower dependencies
+plugins/geotrack-editor/vendor/

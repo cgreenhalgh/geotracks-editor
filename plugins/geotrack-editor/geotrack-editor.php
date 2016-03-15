@@ -94,6 +94,13 @@ function gted_add_custom_box() {
 		'geotrack',               // Post type.
 		'normal', 'high'
 	);
+		add_meta_box(
+			'gted_geolist_box_id',        // Unique ID.
+			'Geolist Settings',        // Box title.
+			'gted_geolist_custom_box',  // Content callback.
+			'geolist',               // Post type.
+			'normal', 'high'
+		);
 }
 /**
  * Html generator for geotrack custom metabox.
@@ -109,7 +116,7 @@ function gted_geotrack_custom_box( $post ) {
 /* Register save_post handler. */
 add_action( 'save_post_geotrack', 'gted_save_geotrack' );
 /**
- * Save post form handler (geotrack or geolist).
+ * Save post form handler (geotrack).
  *
  * @param int $post_id Post being saved.
  */
@@ -121,4 +128,47 @@ function gted_save_geotrack( $post_id ) {
 		update_post_meta( $post_id, '_gted_duration_ms', $duration_ms );
 	}
 }
-
+/**
+ * Html generator for geolist custom metabox.
+ *
+ * @param post $post post being edited.
+ */
+function gted_geolist_custom_box( $post ) {
+?>
+<div ng-app="gted">
+	<div ng-controller="test">{{ test }}</div>
+</div>
+<?php
+}
+/* Register save_post handler. */
+add_action( 'save_post_geolist', 'gted_save_geolist' );
+/**
+ * Save post form handler (geolist).
+ *
+ * @param int $post_id Post being saved.
+ */
+function gted_save_geolist( $post_id ) {
+}
+/* Hook to enqueue scripts and style for my metaboxes. */
+add_action( 'admin_enqueue_scripts', 'gted_enqueue' );
+/**
+ * Enqueue scripts and styles for my metaboxes.
+ *
+ * @param string $hook Page name.
+ */
+function gted_enqueue( $hook ) {
+	if ( 'post.php' != $hook && 'post-new.php' != $hook ) { return; }
+	wp_register_script( 'gted-angular',
+		plugins_url( '/vendor/angular/angular.js', __FILE__ ),
+		array( 'jquery' )
+	);
+	wp_enqueue_script( 'gted-editor',
+		plugins_url( '/js/editor.js', __FILE__ ),
+		array( 'jquery', 'gted-angular' )
+	);
+	$gted_nonce = wp_create_nonce( 'gted_editor' );
+	wp_localize_script( 'gted-editor', 'gted_wp', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'nonce'    => $gted_nonce,
+	) );
+}

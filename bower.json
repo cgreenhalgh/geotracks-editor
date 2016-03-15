@@ -1,0 +1,10 @@
+{
+  "name": "geotracks-editor",
+  "description": "Geotracks editor wordpress plugin UI",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.x",
+    "jquery": "~2.2.1"
+  }
+}
