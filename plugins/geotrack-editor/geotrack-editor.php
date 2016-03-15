@@ -15,7 +15,7 @@ License: AGPL-3.0
 /*
 Geotrack Editor - wordpress plugin creating geo-located play lists.
 
-Copyright (c) 2014,2015 The University of Nottingham
+Copyright (c) 2016 The University of Nottingham
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as
@@ -30,3 +30,54 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+defined( 'ABSPATH' ) or die( 'This is a plugin' );
+
+add_action( 'init', 'gted_create_post_types' );
+/**
+ * Register the geotrack and geolist post type.
+ */
+function gted_create_post_types() {
+	register_post_type( 'geotrack',
+		array(
+			'labels' => array(
+				'name' => __( 'Geotrack' ),
+				'singular_name' => __( 'Geotrack' ),
+				'add_new_item' => __( 'Add New Geotrack' ),
+				'edit_item' => __( 'Edit Geotrack' ),
+				'new_item' => __( 'New Geotrack' ),
+				'view_item' => __( 'View Geotrack Info' ),
+				'search_items' => __( 'Search Geotracks' ),
+				'not_found' => __( 'No Geotrack found' ),
+				'not_found_in_trash' => __( 'No Geotrack found in Trash' ),
+				'all_items' => __( 'All Geotracks' ),
+			),
+			'description' => __( 'Geo-located music track' ),
+			'public' => true,
+			'has_archive' => true,
+			'supports' => array( 'title', 'editor', 'author', 'revisions', 'comments', 'thumbnail' ),
+			'menu_icon' => 'dashicons-format-audio',
+		)
+	);
+	register_post_type( 'geolist',
+		array(
+			'labels' => array(
+				'name' => __( 'Geolist' ),
+				'singular_name' => __( 'Geolist' ),
+				'add_new_item' => __( 'Add New Geolist' ),
+				'edit_item' => __( 'Edit Geolist' ),
+				'new_item' => __( 'New Geolist' ),
+				'view_item' => __( 'View Geolist Info' ),
+				'search_items' => __( 'Search Geolist' ),
+				'not_found' => __( 'No Geolist found' ),
+				'not_found_in_trash' => __( 'No Geolist found in Trash' ),
+				'all_items' => __( 'All Geolists' ),
+			),
+			'description' => __( 'Geo-located play list' ),
+			'public' => true,
+			'has_archive' => true,
+			'supports' => array( 'title', 'editor', 'author', 'revisions', 'comments', 'thumbnail' ),
+			'menu_icon' => 'dashicons-playlist-audio',
+		)
+	);
+}
+
