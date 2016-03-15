@@ -7,6 +7,7 @@
 find plugins \( -iname '*.php' \) -print0 | xargs -n1 -0 php -l &&
 #find scripts \( -iname '*.php' \) -print0 | xargs -n1 -0 php -l &&
 find tests \( -iname '*.php' \) -print0 | xargs -n1 -0 php -l &&
-phpcs -psvn --standard=WordPress plugins &&
+#phpcs -psvn --standard=WordPress plugins &&
+phpcs -psvn --standard=tests/codesniffer.ruleset.xml plugins &&
 phpunit -c phpunit.xml
 

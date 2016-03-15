@@ -81,3 +81,44 @@ function gted_create_post_types() {
 	);
 }
 
+/* Adds a meta box to the post edit screen. */
+add_action( 'add_meta_boxes', 'gted_add_custom_box' );
+/**
+ * Define custom metaboxes.
+ */
+function gted_add_custom_box() {
+	add_meta_box(
+		'gted_geotrack_box_id',        // Unique ID.
+		'Geotrack Settings', 	    // Box title.
+		'gted_geotrack_custom_box',  // Content callback.
+		'geotrack',               // Post type.
+		'normal', 'high'
+	);
+}
+/**
+ * Html generator for geotrack custom metabox.
+ *
+ * @param post $post post being edited.
+ */
+function gted_geotrack_custom_box( $post ) {
+	$duration_ms = intval( get_post_meta( $post->ID, '_gted_duration_ms', true ) );
+?>
+	<label><input type="number" name="gted_duration_ms" value="<?php esc_attr_e( $duration_ms ) ?>">Duration (ms)</label><br>
+<?php
+}
+/* Register save_post handler. */
+add_action( 'save_post_geotrack', 'gted_save_geotrack' );
+/**
+ * Save post form handler (geotrack or geolist).
+ *
+ * @param int $post_id Post being saved.
+ */
+function gted_save_geotrack( $post_id ) {
+	if ( array_key_exists( 'gted_duration_ms', $_POST ) ) {
+		$duration_ms = intval( $_POST['gted_duration_ms'] );
+		if ( ! $duration_ms ) {
+			$duration_ms = 0; }
+		update_post_meta( $post_id, '_gted_duration_ms', $duration_ms );
+	}
+}
+
