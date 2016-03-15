@@ -45,6 +45,7 @@ Vagrant.configure(2) do |config|
 
     # bower
     sudo npm install -g bower
+    cd /vagrant
     bower install
 
 SHELL

@@ -135,15 +135,14 @@ function gted_save_geotrack( $post_id ) {
  */
 function gted_geolist_custom_box( $post ) {
 	$tracks = get_post_meta( $post->ID, '_gted_tracks', true );
-	if ( ! $tracks )
+	if ( ! $tracks ) {
 		$tracks = '[]';
+	}
 ?>
 <script type="text/javascript">var gted_geolist_id=<?php esc_attr_e( $post->ID ); ?>;</script>
 <input id="gted_tracks" type="hidden" name="gted_tracks" value="<?php echo( filter_var( $tracks, FILTER_SANITIZE_SPECIAL_CHARS ) ) ?>">
-<div ng-app="gted">
-	<div ng-controller="test"><input type="text" ng-model="test" ng-change="update()"></div>
-</div>
 <?php
+	include( dirname( __FILE__ ) . '/partials/geolist.php' );
 }
 /* Register save_post handler. */
 add_action( 'save_post_geolist', 'gted_save_geolist' );
@@ -157,7 +156,7 @@ function gted_save_geolist( $post_id ) {
 			$tracks = $_POST['gted_tracks'];
 		if ( ! $tracks ) {
 				$tracks = '[]'; }
-			// Wp_slash allegedly required to preserve escaped chars in JSON
+			// Wp_slash allegedly required to preserve escaped chars in JSON.
 			update_post_meta( $post_id, '_gted_tracks', wp_slash( $tracks ) );
 	}
 }
@@ -183,4 +182,7 @@ function gted_enqueue( $hook ) {
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'nonce'    => $gted_nonce,
 	) );
+	wp_enqueue_style( 'gted-css',
+		plugins_url( '/css/gted.css', __FILE__ )
+	);
 }

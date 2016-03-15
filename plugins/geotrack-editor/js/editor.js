@@ -15,4 +15,27 @@ gtedApp.controller('test', ['$scope', '$http', function($scope,$http) {
 	$scope.update = function() {
 		jQuery( '#gted_tracks' ).val( $scope.test );
 	};
+	$scope.addingGeotrack = false;
+	$scope.addGeotrack = function() {
+		$scope.addingGeotrack = true;
+		console.log('addGeotrack...');
+	};
+	$scope.closeModal = function() {
+		$scope.addingGeotrack = false;
+	};
+	// Search geotrack.
+	$scope.searching = false;
+	$scope.searchText = '';
+	$scope.searchChanged = function() {
+	};
+	$scope.searchKey = function( $event ) {
+		if ( $event.which == 13 ) {
+			$scope.search();
+			$event.preventDefault();
+		}
+	};
+	$scope.search = function() {
+		console.log( 'search for '+$scope.searchText );
+		$scope.searching = true;
+	};
 }]);
