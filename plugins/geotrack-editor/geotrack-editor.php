@@ -186,3 +186,62 @@ function gted_enqueue( $hook ) {
 		plugins_url( '/css/gted.css', __FILE__ )
 	);
 }
+/* AJAX entry. */
+if ( is_admin() ) {
+	add_action( 'wp_ajax_gted_search_geotracks', 'gted_search_geotracks' );
+}
+/**
+ * Geotrack Search AJAX entry.
+ */
+function gted_search_geotracks() {
+	check_ajax_referer( 'gted_editor' );
+	$data = $_POST ['data'];
+	if ( ! $data ) {
+		// Bad request.
+		wp_send_json_error( 'no data' );
+	}
+	// Why does wordpress escape?
+	$query = json_decode( stripslashes( $data ), true );
+	if ( null === $query ) {
+		// Bad request.
+		wp_send_json_error( 'Not JSON: ' + $data );
+	}
+	$personal = false;
+	if ( array_key_exists( 'personal', $query ) ) {
+		$personal = boolval( $query['personal'] );
+	}
+	// Consider more complex keyword queries, see https://codex.wordpress.org/Custom_Queries.
+	$text = null;
+	if ( array_key_exists( 'text', $query ) ) {
+		$text = sanitize_text_field( strval( $query['text'] ) );
+	}
+	$offset = 0;
+	if ( array_key_exists( 'offset', $query ) ) {
+		$offset = intval( $query['offset'] );
+	}
+
+	$args = array(
+			'post_type' => 'geotrack',
+			'orderby' => 'title',
+			'order' => 'ASC',
+			'posts_per_page' => 11,
+			's' => $text,
+			'offset' => $offset,
+	);
+	// Offset offset.
+	if ( $personal ) {
+		$args['author'] = wp_get_current_user()->ID;
+		$args['post_state'] = array( 'publish', 'private' );
+	}
+	// Default is publish.
+	$q = new WP_Query( $args );
+	$res = array();
+	while ( $q->have_posts() ) {
+		$post = $q->next_post();
+		$res[] = array(
+				id => $post->ID,
+				title => $post->post_title,
+		);
+	}
+	wp_send_json_success( $res );
+}

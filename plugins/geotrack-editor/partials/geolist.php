@@ -6,21 +6,26 @@
 		<div class="media-modal">
 			<button type="button" class="button-link media-modal-close" ng-click="closeModal()"><span class="media-modal-icon"><span class="screen-reader-text">Close Geotrack panel</span></span></button>
 			<div class="media-modal-content">
-				<div class="media-frame">
+				<div class="media-frame" ng-controller="search">
 					<div class="media-frame-title">
 						<h1>Add Geotrack</h1>
 					</div>
-					<div class="media-frame-content">
+					<div class="media-frame-content" >
 						<div class="inside">
 						<input type="text" placeholder="Title" ng-keypress="searchKey($event)" ng-change="searchChanged()" ng-model="searchText">
 						<button type="button" class="button" ng-click="search()">Search</button>
+						<select ng-model="searchPersonal" ng-options="item.value as item.label for item in searchPersonalOptions" ng-change="searchChanged()"></select>
 						<span class="gted-loading" ng-class="{hidden: !searching}">searching...</span><br>
+						<table><tbody>
+							<tr ng-repeat="geotrack in geotracks"><td><label><input type="checkbox" ng-change="changeSelected()" ng-model="geotrack.selected">{{ geotrack.title }}</label></td></tr>
+							<tr ng-class="{hidden: !moreGeotracks}"><td><a ng-click="more()">More...</a></td></tr>
+						</tbody></table>
 						</div>
 					</div>
 					<div class="media-frame-toolbar">
 						<div class="media-toolbar">
 							<div class="media-toolbar-primary">
-								<button type="button" class="button button-primary">Insert into Geolist</button>
+								<button type="button" class="button button-primary" ng-disabled="selectedCount==0" ng-click="insert()">Insert into Geolist</button>
 							</div>
 						</div>
 					</div>
