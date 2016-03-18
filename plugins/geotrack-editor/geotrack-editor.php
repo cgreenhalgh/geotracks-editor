@@ -80,6 +80,15 @@ function gted_create_post_types() {
 		)
 	);
 }
+/* Force form multi-part encoding */
+add_action( 'post_edit_form_tag', 'gted_add_edit_form_multipart_encoding' );
+
+/** Force form multi-part encoding (for file submission) */
+function gted_add_edit_form_multipart_encoding() {
+
+	echo ' enctype="multipart/form-data"';
+
+}
 
 /* Adds a meta box to the post edit screen. */
 add_action( 'add_meta_boxes', 'gted_add_custom_box' );
@@ -108,9 +117,22 @@ function gted_add_custom_box() {
  * @param post $post post being edited.
  */
 function gted_geotrack_custom_box( $post ) {
-	$duration_ms = intval( get_post_meta( $post->ID, '_gted_duration_ms', true ) );
+	$duration_s = intval( get_post_meta( $post->ID, '_gted_duration_s', true ) );
+	$md5 = get_post_meta( $post->ID, '_gted_md5', true );
+	$track_info = get_post_meta( $post->ID, '_gted_track_info' );
+	// See if there's a status message to display (we're using this to show errors during the upload process, though we should probably be using the WP_error class).
+	$status_message = get_post_meta( $post->ID, '_gted_file_upload_feedback', true );
+	if ( $status_message ) {
+		echo '<div class="upload_status_message">';
+		echo esc_html( $status_message );
+		echo '</div>';
+	}
 ?>
-	<label><input type="number" name="gted_duration_ms" value="<?php esc_attr_e( $duration_ms ) ?>">Duration (ms)</label><br>
+        <label>Upload audio file: <input type="file" name="gted_file" id="gted_file"></label><br>
+	<input type="hidden" name="gted_manual_save_flag" value="true" />
+	<p>MD5=<?php esc_html_e( $md5 ) ?>
+	duration=<?php esc_html_e( $duration_s ) ?>
+	track_info=<?php esc_html_e( $track_info ) ?></p>
 <?php
 }
 /* Register save_post handler. */
@@ -121,11 +143,32 @@ add_action( 'save_post_geotrack', 'gted_save_geotrack' );
  * @param int $post_id Post being saved.
  */
 function gted_save_geotrack( $post_id ) {
-	if ( array_key_exists( 'gted_duration_ms', $_POST ) ) {
-		$duration_ms = intval( $_POST['gted_duration_ms'] );
-		if ( ! $duration_ms ) {
-			$duration_ms = 0; }
-		update_post_meta( $post_id, '_gted_duration_ms', $duration_ms );
+	// See  http://wordpress.stackexchange.com/questions/4307/how-can-i-add-an-image-upload-field-directly-to-a-custom-write-panel/4413#4413.
+	if ( $post_id && isset( $_POST['gted_manual_save_flag'] ) ) {
+		if ( isset( $_FILES['gted_file'] ) && ( $_FILES['gted_file']['size'] > 0 ) ) {
+			$arr_file_type = wp_check_filetype( basename( $_FILES['gted_file']['name'] ) );
+			$uploaded_file_type = $arr_file_type['type'];
+			$allowed_file_types = array( 'audio/mp3', 'audio/mpeg', 'audio/ogg' );
+			if ( in_array( $uploaded_file_type, $allowed_file_types ) ) {
+				$upload_overrides = array( 'test_form' => false );
+				$uploaded_file = wp_handle_upload( $_FILES['gted_file'], $upload_overrides );
+				if ( isset( $uploaded_file['file'] ) ) {
+					// TODO - get md5, duration, etc.
+					$upload_feedback = 'Uploaded '.$uploaded_file['file'];
+				} else {
+					// Error - upload.
+					$upload_feedback = 'There was a problem with your upload.';
+				}
+			} else {
+				// Error - file type.
+				$upload_feedback = 'Please upload only MP3 or OGG audio files.';
+			}
+		} else {
+			// No file.
+			$upload_feedback = 'No file';
+		}
+		update_post_meta( $post_id, '_gted_file_upload_feedback',$upload_feedback );
+
 	}
 }
 /**
