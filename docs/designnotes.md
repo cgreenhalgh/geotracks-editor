@@ -41,7 +41,7 @@ each be custom post types.
 
 Geotrack metadata will include:
 - `title`, typically 'TRACK by ARTIST from ALBUM (YEAR)'
-- `_gted_duration_ms`, duration in ms
+- `_gted_duration_s`, duration in ms
 - `_gted_md5`, MD5 of audio file
 - `_gted_isrc`, ISRC if known
 - `_gted_spotify_id`, if known

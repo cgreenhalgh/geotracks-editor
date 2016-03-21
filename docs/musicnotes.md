@@ -136,3 +136,12 @@ Downloads are (at least in this case) mp3/m4a or 44.1khz/16 bit FLAC
 ISRC should/could be included ID3 metadata, tag `ISRC` (?!)
 (at least if ID3...).
 
+Example of metadata obtained by getID3 (PHP) from a track ripped from a CD, most likely by Windows Media Player:
+
+```
+Uploaded 03 Heathery Breeze.mp3 (3640720 bytes) as /tmp/php3qKkB3, metadata: {"dataformat":"mp3","channels":2,"sample_rate":44100,"bitrate":128000,"channelmode":"joint stereo","bitrate_mode":"cbr","lossless":false,"encoder_options":"CBR128","compression_ratio":0.090702947845805,"fileformat":"mp3","filesize":3640720,"mime_type":"audio/mpeg","length":227,"length_formatted":"3:47","year":"1996","album":"Happy","title":"Heathery Breeze","music_cd_identifier":"Du0000+u00009u00006u0000+u00006u00001u0000Au00000u0000+u0000Bu00002u0000Du00009u0000+u0000Fu00005u00009u00008u0000+u00001u00005u0000Au0000Du00003u0000+u00001u0000Cu00005u00008u00009u0000+u00002u00000u00005u0000Du00000u0000+u00002u00004u00006u00006u00002u0000+u00002u00007u0000Cu00004u00002u0000+u00002u0000Cu0000Cu0000Eu0000Au0000+u00003u00001u0000Cu0000Cu00007u0000+u00003u00006u0000Du00005u0000Du0000+u00003u0000Bu0000Bu0000Eu0000Bu0000+u00004u00000u0000Du0000Fu0000Du0000u0000u0000","track_number":"3","genre":"Folk","band":"Da Dog","artist":"Da Dog"}
+```
+i.e. includes:
+- `title`, `artist`, `album`, `year`, `track_number`
+- `length` in seconds (this is Wordpress/getID3-specific)
+- `mime_type`

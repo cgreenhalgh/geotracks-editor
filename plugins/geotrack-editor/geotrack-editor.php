@@ -119,7 +119,7 @@ function gted_add_custom_box() {
 function gted_geotrack_custom_box( $post ) {
 	$duration_s = intval( get_post_meta( $post->ID, '_gted_duration_s', true ) );
 	$md5 = get_post_meta( $post->ID, '_gted_md5', true );
-	$track_info = get_post_meta( $post->ID, '_gted_track_info' );
+	$track_info = get_post_meta( $post->ID, '_gted_track_info', true );
 	// See if there's a status message to display (we're using this to show errors during the upload process, though we should probably be using the WP_error class).
 	$status_message = get_post_meta( $post->ID, '_gted_file_upload_feedback', true );
 	if ( $status_message ) {
@@ -145,23 +145,58 @@ add_action( 'save_post_geotrack', 'gted_save_geotrack' );
 function gted_save_geotrack( $post_id ) {
 	// See  http://wordpress.stackexchange.com/questions/4307/how-can-i-add-an-image-upload-field-directly-to-a-custom-write-panel/4413#4413.
 	if ( $post_id && isset( $_POST['gted_manual_save_flag'] ) ) {
-		if ( isset( $_FILES['gted_file'] ) && ( $_FILES['gted_file']['size'] > 0 ) ) {
-			$arr_file_type = wp_check_filetype( basename( $_FILES['gted_file']['name'] ) );
-			$uploaded_file_type = $arr_file_type['type'];
-			$allowed_file_types = array( 'audio/mp3', 'audio/mpeg', 'audio/ogg' );
-			if ( in_array( $uploaded_file_type, $allowed_file_types ) ) {
-				$upload_overrides = array( 'test_form' => false );
-				$uploaded_file = wp_handle_upload( $_FILES['gted_file'], $upload_overrides );
-				if ( isset( $uploaded_file['file'] ) ) {
-					// TODO - get md5, duration, etc.
-					$upload_feedback = 'Uploaded '.$uploaded_file['file'];
-				} else {
-					// Error - upload.
-					$upload_feedback = 'There was a problem with your upload.';
-				}
+		if ( isset( $_FILES['gted_file'] ) ) {
+			if ( ! isset( $_FILES['gted_file']['error'] ) || is_array( $_FILES['gted_file']['error'] ) ) {
+				$upload_feedback = 'There was a problem with your upload ($_FILES[...]["error"] not valid)';
+			} else if ( UPLOAD_ERR_NO_FILE === $_FILES['gted_file']['error'] ) {
+				$upload_feedback = 'There was a problem with your upload (no file sent)';
+			} else if ( UPLOAD_ERR_INI_SIZE === $_FILES['gted_file']['error'] ) {
+				$upload_feedback = 'There was a problem with your upload (exceeded ini upload size)';
+			} else if ( UPLOAD_ERR_FORM_SIZE === $_FILES['gted_file']['error'] ) {
+				$upload_feedback = 'There was a problem with your upload (exceeded form upload size)';
+			} else if ( UPLOAD_ERR_OK !== $_FILES['gted_file']['error'] ) {
+				$upload_feedback = 'There was a problem with your upload (unknown $_FILES error '.$_FILES['gted_file']['error'].')';
+			} else if ( $_FILES['gted_file']['size'] <= 0 ) {
+				$upload_feedback = 'There was a problem with your upload (file too small)';
 			} else {
-				// Error - file type.
-				$upload_feedback = 'Please upload only MP3 or OGG audio files.';
+				$arr_file_type = wp_check_filetype( basename( $_FILES['gted_file']['name'] ) );
+				$uploaded_file_type = $arr_file_type['type'];
+				$allowed_file_types = array( 'audio/mp3', 'audio/mpeg', 'audio/ogg' );
+				if ( in_array( $uploaded_file_type, $allowed_file_types ) ) {
+					$tmp_file = $_FILES['gted_file']['tmp_name'];
+					$upload_feedback = 'Uploaded '.$_FILES['gted_file']['name'].' ('.$_FILES['gted_file']['size'].' bytes) as '.$tmp_file;
+					$md5 = md5_file( $tmp_file );
+					if ( false === $md5 ) {
+						$upload_feedback = 'There was a problem with your upload (could not get MD5 for uploaded file)';
+					} else {
+						$metadata = wp_read_audio_metadata( $tmp_file );
+						$upload_feedback .= ', metadata: '.json_encode( $metadata );
+						update_post_meta( $post_id, '_gted_md5', $md5 );
+						$duration_s = '';
+						if ( ! empty( $metadata['length'] ) ) {
+							$duration_s = intval( $metadata['length'] );
+						}
+						$track_info = array();
+						if ( ! empty( $metadata['artist'] ) ) {
+							$track_info['artist'] = $metadata['artist'];
+						}
+						if ( ! empty( $metadata['album'] ) ) {
+							$track_info['album'] = $metadata['album'];
+						}
+						if ( ! empty( $metadata['title'] ) ) {
+							$track_info['title'] = $metadata['title'];
+						}
+						if ( ! empty( $metadata['year'] ) ) {
+							$track_info['year'] = $metadata['year'];
+						}
+						update_post_meta( $post_id, '_gted_duration_s', $duration_s );
+						update_post_meta( $post_id, '_gted_track_info', json_encode( $track_info ) );
+						// Use move_uploaded_file( $_FILES['gted_file']['tmp_name'], XXX ).
+					}
+				} else {
+					// Error - file type.
+					$upload_feedback = 'Please upload only MP3 or OGG audio files.';
+				}
 			}
 		} else {
 			// No file.
