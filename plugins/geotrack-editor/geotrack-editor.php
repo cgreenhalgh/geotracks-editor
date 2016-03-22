@@ -120,6 +120,7 @@ function gted_geotrack_custom_box( $post ) {
 	$duration_s = intval( get_post_meta( $post->ID, '_gted_duration_s', true ) );
 	$md5 = get_post_meta( $post->ID, '_gted_md5', true );
 	$track_info = get_post_meta( $post->ID, '_gted_track_info', true );
+	$file = get_post_meta( $post->ID, '_gted_file', true );
 	// See if there's a status message to display (we're using this to show errors during the upload process, though we should probably be using the WP_error class).
 	$status_message = get_post_meta( $post->ID, '_gted_file_upload_feedback', true );
 	if ( $status_message ) {
@@ -132,8 +133,36 @@ function gted_geotrack_custom_box( $post ) {
 	<input type="hidden" name="gted_manual_save_flag" value="true" />
 	<p>MD5=<?php esc_html_e( $md5 ) ?>
 	duration=<?php esc_html_e( $duration_s ) ?>
-	track_info=<?php esc_html_e( $track_info ) ?></p>
+	track_info=<?php esc_html_e( $track_info ) ?>
+	file=<?php esc_html_e( $file ) ?></p>
 <?php
+}
+/** Get audio file directory.
+ *
+ *  @return string Audio file directory path with trailing '/'.
+ */
+function gted_get_audio_dir() {
+	// TODO: keep these files somewhere else that isn't directly accessible.
+	// Returns 'basedir' (no trailing slash) and 'baseurl' (trailing slash).
+	$upload = wp_upload_dir();
+	$dir = trailingslashit( $upload['basedir'] ) . 'geotracks';
+	if ( ! wp_mkdir_p( $dir ) ) {
+		return null; }
+	return trailingslashit( $dir );
+}
+/**
+ * Get audio file path.
+ *
+ * @param string $md5 Md5.
+ * @param string $ext File extension.
+ * @return string File path.
+ */
+function gted_get_audio_file( $md5, $ext ) {
+	// TODO: multiple sub-directories?!.
+	$dir = gted_get_audio_dir();
+	if ( null === $dir ) {
+		return null; }
+	return $dir . $md5 . '.' . $ext;
 }
 /* Register save_post handler. */
 add_action( 'save_post_geotrack', 'gted_save_geotrack' );
@@ -164,13 +193,12 @@ function gted_save_geotrack( $post_id ) {
 				$allowed_file_types = array( 'audio/mp3', 'audio/mpeg', 'audio/ogg' );
 				if ( in_array( $uploaded_file_type, $allowed_file_types ) ) {
 					$tmp_file = $_FILES['gted_file']['tmp_name'];
-					$upload_feedback = 'Uploaded '.$_FILES['gted_file']['name'].' ('.$_FILES['gted_file']['size'].' bytes) as '.$tmp_file;
+					$upload_feedback = 'Uploaded '.$_FILES['gted_file']['name'].' ('.$_FILES['gted_file']['size'].' bytes)';
 					$md5 = md5_file( $tmp_file );
 					if ( false === $md5 ) {
 						$upload_feedback = 'There was a problem with your upload (could not get MD5 for uploaded file)';
 					} else {
 						$metadata = wp_read_audio_metadata( $tmp_file );
-						$upload_feedback .= ', metadata: '.json_encode( $metadata );
 						update_post_meta( $post_id, '_gted_md5', $md5 );
 						$duration_s = '';
 						if ( ! empty( $metadata['length'] ) ) {
@@ -191,7 +219,14 @@ function gted_save_geotrack( $post_id ) {
 						}
 						update_post_meta( $post_id, '_gted_duration_s', $duration_s );
 						update_post_meta( $post_id, '_gted_track_info', json_encode( $track_info ) );
-						// Use move_uploaded_file( $_FILES['gted_file']['tmp_name'], XXX ).
+						$file = gted_get_audio_file( $md5, $arr_file_type['ext'] );
+						if ( null === $file ) {
+							$upload_feedback = 'There was a problem with your upload (could not get audio dir, '.gted_get_audio_dir().', upload dir='.json_encode( wp_upload_dir() ).')';
+						} else if ( ! move_uploaded_file( $_FILES['gted_file']['tmp_name'], $file ) ) {
+							$upload_feedback = 'There was a problem with your upload (could not move file to '.$file.')';
+						} else {
+							update_post_meta( $post_id, '_gted_file', $file );
+						}
 					}
 				} else {
 					// Error - file type.
