@@ -205,14 +205,14 @@ function gted_save_geotrack( $post_id ) {
 							$duration_s = intval( $metadata['length'] );
 						}
 						$track_info = array();
+						if ( ! empty( $metadata['title'] ) ) {
+							$track_info['title'] = $metadata['title'];
+						}
 						if ( ! empty( $metadata['artist'] ) ) {
 							$track_info['artist'] = $metadata['artist'];
 						}
 						if ( ! empty( $metadata['album'] ) ) {
 							$track_info['album'] = $metadata['album'];
-						}
-						if ( ! empty( $metadata['title'] ) ) {
-							$track_info['title'] = $metadata['title'];
 						}
 						if ( ! empty( $metadata['year'] ) ) {
 							$track_info['year'] = $metadata['year'];
@@ -239,6 +239,32 @@ function gted_save_geotrack( $post_id ) {
 		}
 		update_post_meta( $post_id, '_gted_file_upload_feedback',$upload_feedback );
 
+		// Default track title from metadata.
+		$track_info = get_post_meta( $post_id, '_gted_track_info', true );
+		if ( ! empty( $track_info ) ) {
+			$track_info = json_decode( $track_info, true );
+			$title = '';
+			if ( ! empty( $track_info['title'] ) ) {
+				$title = $track_info['title'];
+			}
+			if ( ! empty( $track_info['artist'] ) ) {
+				$title = $title . ' by ' . $track_info['artist'];
+			}
+			if ( ! empty( $track_info['album'] ) ) {
+				$title = $title . ' from ' . $track_info['album'];
+			}
+			if ( ! empty( $track_info['year'] ) ) {
+				$title = $title . ' (' . $track_info['year'] . ')';
+			}
+			if ( '' != $title && empty( $_POST['post_title'] ) ) {
+				$_POST['post_title'] = $title;
+				$pvals = array(
+					'ID' => $post_id,
+					'post_title' => $title,
+				);
+				wp_update_post( $pvals );
+			}
+		}
 	}
 }
 /**
@@ -247,13 +273,13 @@ function gted_save_geotrack( $post_id ) {
  * @param post $post post being edited.
  */
 function gted_geolist_custom_box( $post ) {
-	$tracks = get_post_meta( $post->ID, '_gted_tracks', true );
+	$tracks = get_post_meta( $post->ID, '_gted_geolist', true );
 	if ( ! $tracks ) {
 		$tracks = '[]';
 	}
 ?>
 <script type="text/javascript">var gted_geolist_id=<?php esc_attr_e( $post->ID ); ?>;</script>
-<input id="gted_tracks" type="hidden" name="gted_tracks" value="<?php echo( filter_var( $tracks, FILTER_SANITIZE_SPECIAL_CHARS ) ) ?>">
+<input id="gted_geolist" type="hidden" name="gted_geolist" value="<?php echo( filter_var( $tracks, FILTER_SANITIZE_SPECIAL_CHARS ) ) ?>">
 <?php
 	include( dirname( __FILE__ ) . '/partials/geolist.php' );
 }
@@ -265,12 +291,12 @@ add_action( 'save_post_geolist', 'gted_save_geolist' );
  * @param int $post_id Post being saved.
  */
 function gted_save_geolist( $post_id ) {
-	if ( array_key_exists( 'gted_tracks', $_POST ) ) {
-			$tracks = $_POST['gted_tracks'];
+	if ( array_key_exists( 'gted_geolist', $_POST ) ) {
+			$tracks = $_POST['gted_geolist'];
 		if ( ! $tracks ) {
 				$tracks = '[]'; }
 			// Wp_slash allegedly required to preserve escaped chars in JSON.
-			update_post_meta( $post_id, '_gted_tracks', wp_slash( $tracks ) );
+			update_post_meta( $post_id, '_gted_geolist', wp_slash( $tracks ) );
 	}
 }
 /* Hook to enqueue scripts and style for my metaboxes. */
@@ -351,9 +377,11 @@ function gted_search_geotracks() {
 	$res = array();
 	while ( $q->have_posts() ) {
 		$post = $q->next_post();
+		$duration_s = intval( get_post_meta( $post->ID, '_gted_duration_s', true ) );
 		$res[] = array(
 				id => $post->ID,
 				title => $post->post_title,
+				duration_s => $duration_s,
 		);
 	}
 	wp_send_json_success( $res );

@@ -17,10 +17,12 @@ gtedApp.factory('gted_wp', ['$window', function($window) {
 
 gtedApp.controller('test', ['$scope', '$http', 'gted_wp', '$httpParamSerializer', function($scope,$http,gted_wp,$httpParamSerializer) {
 	console.log( 'Hello from gted' );
-	$scope.test = jQuery( '#gted_tracks' ).val();
+	var gted_geolist = jQuery( '#gted_geolist' ).val();
+	$scope.test = gted_geolist;
+	$scope.geolist = JSON.parse( gted_geolist );
 	// Remember gted_geolist_id.
 	$scope.update = function() {
-		jQuery( '#gted_tracks' ).val( $scope.test );
+		jQuery( '#gted_geolist' ).val( $scope.test );
 	};
 	$scope.addingGeotrack = false;
 	$scope.addGeotrack = function() {
@@ -35,6 +37,7 @@ gtedApp.controller('test', ['$scope', '$http', 'gted_wp', '$httpParamSerializer'
 		console.log( 'add ' + tracks.length + ' track(s)' );
 		for (var ti in tracks) {
 			// TODO: add track.
+			
 		}
 	}
 }]);
