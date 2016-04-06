@@ -295,8 +295,8 @@ function gted_save_geolist( $post_id ) {
 			$tracks = $_POST['gted_geolist'];
 		if ( ! $tracks ) {
 				$tracks = '[]'; }
-			// Wp_slash allegedly required to preserve escaped chars in JSON.
-			update_post_meta( $post_id, '_gted_geolist', wp_slash( $tracks ) );
+			// Wp_slash allegedly required to preserve escaped chars in JSON, but I found it escaped double quotes and they never got unescapted.
+			update_post_meta( $post_id, '_gted_geolist', $tracks );
 	}
 }
 /* Hook to enqueue scripts and style for my metaboxes. */

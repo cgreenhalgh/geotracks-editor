@@ -1,5 +1,10 @@
 <div ng-app="gted" ng-controller="test">
         <div><input type="text" ng-model="test" ng-change="update()"></div>
+        <div>
+        	<div class="geolist-entry" ng-repeat="geolist_entry in geolist">
+        		<span class="geotrack-title">{{ geolist_entry.track.title }}</span>
+        	</div>
+        </div>
         <button type="button" class="button" ng-click="addGeotrack()">Add Geotrack</button>
 
 	<div class="gted-modal" ng-class="{hidden:(!addingGeotrack)}">

@@ -1,3 +1,10 @@
 .gted-modal.hidden {
 	display: none;
-};
+}
+div.geolist-entry {
+	padding: 6px;
+	border: solid 1px grey;
+}
+.geotrack-title {
+/*	font-size: 150%;*/
+}

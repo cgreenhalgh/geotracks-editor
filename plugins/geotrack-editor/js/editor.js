@@ -19,10 +19,19 @@ gtedApp.controller('test', ['$scope', '$http', 'gted_wp', '$httpParamSerializer'
 	console.log( 'Hello from gted' );
 	var gted_geolist = jQuery( '#gted_geolist' ).val();
 	$scope.test = gted_geolist;
-	$scope.geolist = JSON.parse( gted_geolist );
-	// Remember gted_geolist_id.
+	try {
+		$scope.geolist = JSON.parse( gted_geolist );
+	} catch (err) {
+		console.log( 'Error parsing geolist: ' + err.message + ' in ' + gted_geolist );
+	}
 	$scope.update = function() {
+		console.log( 'direct set gted_geolist: ' + $scope.test );
 		jQuery( '#gted_geolist' ).val( $scope.test );
+	};
+	// Remember gted_geolist_id.
+	$scope.changed = function() {
+		$scope.test = JSON.stringify( $scope.geolist );
+		jQuery( '#gted_geolist' ).val( JSON.stringify( $scope.geolist ) );
 	};
 	$scope.addingGeotrack = false;
 	$scope.addGeotrack = function() {
@@ -36,9 +45,14 @@ gtedApp.controller('test', ['$scope', '$http', 'gted_wp', '$httpParamSerializer'
 		$scope.addingGeotrack = false;
 		console.log( 'add ' + tracks.length + ' track(s)' );
 		for (var ti in tracks) {
-			// TODO: add track.
-			
+			// Don't carry over selected or $$hashKey.
+			var track = jQuery.extend( {}, tracks[ti] );
+			delete track['selected'];
+			delete track['$$hashKey'];
+			var entry = { track: track };
+			$scope.geolist.push( entry );
 		}
+		$scope.changed();
 	}
 }]);
 
