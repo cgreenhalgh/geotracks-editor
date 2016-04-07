@@ -219,6 +219,7 @@ function gted_save_geotrack( $post_id ) {
 						}
 						update_post_meta( $post_id, '_gted_duration_s', $duration_s );
 						update_post_meta( $post_id, '_gted_track_info', json_encode( $track_info ) );
+						update_post_meta( $post_id, '_gted_file_ext', $arr_file_type['ext'] );
 						$file = gted_get_audio_file( $md5, $arr_file_type['ext'] );
 						if ( null === $file ) {
 							$upload_feedback = 'There was a problem with your upload (could not get audio dir, '.gted_get_audio_dir().', upload dir='.json_encode( wp_upload_dir() ).')';
@@ -378,10 +379,16 @@ function gted_search_geotracks() {
 	while ( $q->have_posts() ) {
 		$post = $q->next_post();
 		$duration_s = intval( get_post_meta( $post->ID, '_gted_duration_s', true ) );
+		$md5 = get_post_meta( $post->ID, '_gted_md5', true );
+		$file_ext = get_post_meta( $post->ID, '_gted_file_ext', true );
+		if ( empty( $file_ext ) ) {
+			$file_ext = '.mp3'; }
 		$res[] = array(
 				id => $post->ID,
 				title => $post->post_title,
 				duration_s => $duration_s,
+				md5 => $md5,
+				file_ext => $file_ext,
 		);
 	}
 	wp_send_json_success( $res );

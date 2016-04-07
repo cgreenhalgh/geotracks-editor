@@ -43,6 +43,7 @@ Geotrack metadata will include:
 - `title`, typically 'TRACK by ARTIST from ALBUM (YEAR)'
 - `_gted_duration_s`, duration in ms
 - `_gted_md5`, MD5 of audio file
+- `_gted_file_ext`, file extension of audio file (e.g. 'mp3')
 - `_gted_isrc`, ISRC if known
 - `_gted_spotify_id`, if known
 
@@ -83,7 +84,7 @@ Initial geolist metadata will be:
 - `_gted_geolist`, array of `geolist_entry`s (see below)
 
 An initial `geolist_entry` will be an object with:
-- `geotrack`,(v1) including `id` (internal wordpress ID) and `title`
+- `geotrack`,(v1) including `id` (internal wordpress ID), `title`, `md5` and `file_ext`
 - `when`, array of conditions for geotrack to be active (see below)
 - `transition_in`, map of (initially) `default` to inward transition (see below)
 - `transition_out`, map of (initially) `default` to outward transition (see below)

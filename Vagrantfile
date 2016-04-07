@@ -48,6 +48,8 @@ Vagrant.configure(2) do |config|
     cd /vagrant
     bower install
 
+    sudo npm install -g coffee-script
+
 SHELL
 
 
